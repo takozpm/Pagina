@@ -13,10 +13,6 @@
             background: url('fondocercos.jpg') no-repeat center center fixed;
             background-size: cover;
             animation: movimientoFondo 10s infinite alternate ease-in-out;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
         @keyframes movimientoFondo {
@@ -51,7 +47,7 @@
             color: white;
             border-radius: 16px; /* Bordes redondeados */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -115,13 +111,24 @@
 
         /* Media Query para dispositivos móviles */
         @media (max-width: 600px) {
+            body {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                height: auto;
+                padding-top: 20px; /* Para dar espacio en la parte superior */
+                background-size: cover;
+            }
+
             main {
-                padding: 20px;
+                padding: 15px;
                 width: 90%; /* Ajusta el ancho del main para pantallas pequeñas */
+                margin: 0 auto; /* Centra el contenedor en la pantalla */
+                box-sizing: border-box;
             }
 
             header h1 {
-                font-size: 24px; /* Reduce el tamaño de la fuente del título en móviles */
+                font-size: 22px; /* Reduce el tamaño de la fuente del título en móviles */
             }
 
             .descripcion p, .descripcion li {
@@ -130,10 +137,17 @@
 
             .formulario {
                 width: 100%;
+                padding: 15px;
             }
 
             .formulario label, .formulario select, .formulario input[type="number"], .formulario button {
                 font-size: 14px; /* Ajusta el tamaño de los textos y botones en formularios */
+            }
+
+            /* Ajustar imagen para pantallas pequeñas */
+            .producto {
+                width: 100%;
+                height: auto; /* Mantener la relación de aspecto */
             }
         }
     </style>
@@ -145,7 +159,7 @@
 </header>
 
 <main>
-    <img src="cercos de metro.jpg" width="600px" height="350px" alt="Malla para cerco" class="producto">
+    <img src="cercos de metro.jpg" width="500" height="350" class="producto" alt="Malla para cerco">
 
     <div class="descripcion">
         <p style="font-size: 24px; font-weight: bold;">𝗖𝗢𝗠𝗣𝗥𝗔 𝗬 𝗩𝗘𝗡𝗧𝗔𝗦 𝗠𝗔𝗬𝗢𝗥𝗜𝗦𝗧𝗔𝗦</p>
@@ -162,6 +176,29 @@
         <ul>
             <li>1,00 x 25</li>
             <li>1,20 x 25</li>
-            
+            <li>1,50 x 25</li>
+            <li>2,00 x 25</li>
+        </ul>
+    </div>
 
+    <div class="formulario">
+        <h2>Realiza tu Pedido</h2>
+        <form action="procesar_pedido.php" method="POST">
+            <label for="medidas">Selecciona las Medidas</label>
+            <select id="medidas" name="medidas" required>
+                <option value="1.00x25">1,00 x 25</option>
+                <option value="1.20x25">1,20 x 25</option>
+                <option value="1.50x25">1,50 x 25</option>
+                <option value="2.00x25">2,00 x 25</option>
+            </select>
 
+            <label for="cantidad">Cantidad de Mallas</label>
+            <input type="number" id="cantidad" name="cantidad" placeholder="Ej. 10" required>
+
+            <button type="submit">Hacer Pedido</button>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
