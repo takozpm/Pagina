@@ -112,6 +112,30 @@
         .formulario button:hover {
             background-color: #218838;
         }
+
+        /* Media Query para dispositivos móviles */
+        @media (max-width: 600px) {
+            main {
+                padding: 20px;
+                width: 90%; /* Ajusta el ancho del main para pantallas pequeñas */
+            }
+
+            header h1 {
+                font-size: 24px; /* Reduce el tamaño de la fuente del título en móviles */
+            }
+
+            .descripcion p, .descripcion li {
+                font-size: 16px; /* Ajusta el tamaño de la fuente para mejor legibilidad */
+            }
+
+            .formulario {
+                width: 100%;
+            }
+
+            .formulario label, .formulario select, .formulario input[type="number"], .formulario button {
+                font-size: 14px; /* Ajusta el tamaño de los textos y botones en formularios */
+            }
+        }
     </style>
 </head>
 <body>
@@ -138,31 +162,6 @@
         <ul>
             <li>1,00 x 25</li>
             <li>1,20 x 25</li>
-            <li>1,50 x 25</li>
-            <li>2,00 x 25</li>
-        </ul>
-    </div>
-
-    <div class="formulario">
-        <h2>Realiza tu Pedido</h2>
-        <form action="procesar_pedido.php" method="POST">
-            <label for="medidas">Selecciona las Medidas</label>
-            <select id="medidas" name="medidas" required>
-                <option value="1.00x25">1,00 x 25</option>
-                <option value="1.20x25">1,20 x 25</option>
-                <option value="1.50x25">1,50 x 25</option>
-                <option value="2.00x25">2,00 x 25</option>
-            </select>
-
-            <label for="cantidad">Cantidad de Mallas</label>
-            <input type="number" id="cantidad" name="cantidad" placeholder="Ej. 10" required>
-
-            <button type="submit">Hacer Pedido</button>
-        </form>
-    </div>
-</main>
-
-</body>
-</html>
+            
 
 
