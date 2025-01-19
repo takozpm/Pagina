@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Compra mallas para cercos en Chonchi. Ofrecemos diferentes medidas y opciones.">
+    <meta name="description" content="Compra mallas para cercos en Chonchi. Ofrecemos diferentes medidas y opciones">
     <title>Mallas Para Cercos Chonchi-Chiloe</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background: url('fondocercos.jpg') no-repeat center center fixed;
             background-size: cover;
             animation: movimientoFondo 10s infinite alternate ease-in-out;
+            color: white;
         }
 
         @keyframes movimientoFondo {
-            0% {
-                background-position: center top;
-            }
-            100% {
-                background-position: center bottom;
-            }
+            0% { background-position: center top; }
+            100% { background-position: center bottom; }
         }
 
+        /* Título con animación */
         header {
-            background-color: rgba(111, 79, 40, 0.8); /* Color café con opacidad */
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 30px;
             margin-bottom: 20px;
-            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         header h1 {
+            font-size: 3rem;
             margin: 0;
+            animation: animacionTitulo 5s ease-in-out infinite alternate;
+            background: linear-gradient(to right, #ff6f61, #ffb86c);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        @keyframes animacionTitulo {
+            0% { transform: translateX(0); font-size: 3rem; }
+            50% { transform: translateX(-20px); font-size: 3.5rem; }
+            100% { transform: translateX(20px); font-size: 3rem; }
         }
 
         main {
@@ -43,113 +52,148 @@
             flex-direction: column;
             align-items: center;
             padding: 30px;
-            background-color: rgba(51, 51, 51, 0.8); /* Fondo gris oscuro con opacidad */
-            color: white;
-            border-radius: 16px; /* Bordes redondeados */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 16px;
             max-width: 900px;
-            margin: 0 auto;
+            margin: 20px auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        main:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .descripcion, .formulario {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
         }
 
         .descripcion {
-            text-align: left;
-            font-size: 18px;
-            color: #fff;
-            width: 100%;
-            margin-bottom: 20px;
+            background: rgba(51, 51, 51, 0.8);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        .descripcion p {
-            margin-bottom: 10px;
+        .descripcion:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
         }
 
         .descripcion ul {
-            list-style-type: disc; /* Esto agrega el punto negro */
-            padding-left: 20px; /* Agrega espacio a la izquierda */
+            list-style: none;
+            padding: 0;
         }
 
         .descripcion li {
             margin-bottom: 10px;
+            font-size: 18px;
         }
 
         .formulario {
-            background-color: #444; /* Color gris ligeramente más claro */
+            background-color: #444;
             padding: 20px;
             border-radius: 16px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 500px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
-        .formulario label {
-            display: block;
-            margin-bottom: 8px;
+        /* Estilo común para los campos de formulario */
+        .formulario input, .formulario select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            background-color: #f8f8f8;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
         }
 
-        .formulario select, .formulario input[type="number"] {
-            width: 100%;
-            box-sizing: border-box; /* Asegura que todos los elementos tengan el mismo tamaño */
-            padding: 8px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
+        .formulario input:focus, .formulario select:focus {
+            background-color: #f1f1f1;
+            transform: scale(1.02);
+            border-color: #28a745;
         }
 
         .formulario button {
             background-color: #28a745;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
+            padding: 15px;
+            border-radius: 8px;
             width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .formulario button:hover {
             background-color: #218838;
+            transform: scale(1.05);
         }
 
-        /* Media Query para dispositivos móviles */
-        @media (max-width: 600px) {
-            body {
-                display: flex;
-                justify-content: flex-start;
-                align-items: flex-start;
-                height: auto;
-                padding-top: 20px; /* Para dar espacio en la parte superior */
-                background-size: cover;
-            }
-
-            main {
-                padding: 15px;
-                width: 90%; /* Ajusta el ancho del main para pantallas pequeñas */
-                margin: 0 auto; /* Centra el contenedor en la pantalla */
-                box-sizing: border-box;
-            }
-
-            header h1 {
-                font-size: 22px; /* Reduce el tamaño de la fuente del título en móviles */
-            }
-
-            .descripcion p, .descripcion li {
-                font-size: 16px; /* Ajusta el tamaño de la fuente para mejor legibilidad */
-            }
-
-            .formulario {
-                width: 100%;
-                padding: 15px;
-            }
-
-            .formulario label, .formulario select, .formulario input[type="number"], .formulario button {
-                font-size: 14px; /* Ajusta el tamaño de los textos y botones en formularios */
-            }
-
-            /* Ajustar imagen para pantallas pequeñas */
-            .producto {
-                width: 100%;
-                height: auto; /* Mantener la relación de aspecto */
-            }
+        /* Establecer ancho fijo para los campos */
+        .formulario select,
+        .formulario input[type="number"] {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
+
+        /* Contenedor para la Información sobre la Empresa */
+        .info-empresa {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .info-empresa h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .boton-cambiar {
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .boton-cambiar:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Animaciones de transiciones */
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
     </style>
 </head>
 <body>
@@ -158,11 +202,11 @@
     <h1>Mallas Para Cercos Chonchi-Chiloe</h1>
 </header>
 
-<main>
+<main id="main-content">
     <img src="cercos de metro.jpg" width="500" height="350" class="producto" alt="Malla para cerco">
-
+    
     <div class="descripcion">
-        <p style="font-size: 24px; font-weight: bold;">𝗖𝗢𝗠𝗣𝗥𝗔 𝗬 𝗩𝗘𝗡𝗧𝗔𝗦 𝗠𝗔𝗬𝗢𝗥𝗜𝗦𝗧𝗔𝗦</p>
+        <p class="centrado">𝗖𝗢𝗠𝗣𝗥𝗔 𝗬 𝗩𝗘𝗡𝗧𝗔𝗦 𝗠𝗔𝗬𝗢𝗥𝗜𝗦𝗧𝗔𝗦</p>
         <ul>
             <li>Mallas para Cercos de perlon y plastica</li>
             <li>Equipamiento industrial</li>
@@ -172,7 +216,8 @@
             <li>Centro de negocios Mayoristas</li>
             <li>Finanzas</li>
         </ul>
-        <p>Ofrecemos cercos de mallas resistentes y duraderas en Chonchi. Puedes elegir entre diferentes tamaños:</p>
+        <p style="font-size: 20px; font-weight: bold;">Ofrecemos mallas de perlon y plasticas, Especiales para cierres perimetrales y/o para cierre de ganado</p>
+        <div class="centrado">Nuestras diferentes medidas son las siguientes</div>
         <ul>
             <li>1,00 x 25</li>
             <li>1,20 x 25</li>
@@ -198,7 +243,42 @@
             <button type="submit">Hacer Pedido</button>
         </form>
     </div>
+
+    <button class="boton-cambiar" onclick="mostrarInformacion()">Ver Información de la Empresa</button>
 </main>
+
+<div class="info-empresa" id="info-empresa">
+    <h2>Información sobre la Empresa</h2>
+    <p>Con más de 10 años de experiencia en el mercado, somos especialistas en mallas para cercos y pajareras, utilizando mallas perlon, plastico de alta calidad.</p>
+    <p>Contamos con opciones para pedidos especiales en medidas personalizadas, Nuestros cercos se instalan mojados para obtener una mejor elasticidad y durabilidad.</p>
+    <p>Nos enfocamos en ofrecer productos duraderos y eficientes para todas las necesidades de nuestros clientes.</p>
+    <button class="boton-cambiar" onclick="volver()">Volver</button>
+</div>
+
+<script>
+    function mostrarInformacion() {
+        const mainContent = document.getElementById('main-content');
+        const infoEmpresa = document.getElementById('info-empresa');
+        mainContent.classList.add('hidden');
+        setTimeout(() => {
+            mainContent.style.display = 'none';
+            infoEmpresa.style.display = 'flex';
+            infoEmpresa.classList.add('visible');
+        }, 800);
+    }
+
+    function volver() {
+        const mainContent = document.getElementById('main-content');
+        const infoEmpresa = document.getElementById('info-empresa');
+
+        infoEmpresa.classList.remove('visible');
+        setTimeout(() => {
+            infoEmpresa.style.display = 'none';
+            mainContent.style.display = 'flex';
+            mainContent.classList.remove('hidden');
+        }, 800);
+    }
+</script>
 
 </body>
 </html>
