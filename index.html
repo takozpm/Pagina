@@ -32,13 +32,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        header h1 {
+        header h1 { 
             font-size: 3rem;
             margin: 0;
-            animation: animacionTitulo 5s ease-in-out infinite alternate;
+            animation: animacionTitulo 3s ease-in-out infinite alternate;
             background: linear-gradient(to right, #ff6f61, #ffb86c);
             -webkit-background-clip: text;
             color: transparent;
+            background-clip: text; /* Asegurándote de que funcione en otros navegadores */
         }
 
         @keyframes animacionTitulo {
@@ -59,7 +60,22 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         }
+        
+        .producto {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 16px; /* Bordes suavizados */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
+            margin: 20px auto; /* Centrado con separación */
+            display: block;
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Efectos al interactuar */
+        }
 
+        .producto:hover {
+            transform: scale(1.05); /* Aumentar un poco el tamaño al pasar el mouse */
+             opacity: 0.9; /* Suavizar visualmente */
+        }
         main:hover {
             transform: scale(1.05);
             opacity: 0.9;
@@ -101,7 +117,6 @@
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
         }
 
-        /* Estilo común para los campos de formulario */
         .formulario input, .formulario select {
             width: 100%;
             padding: 12px;
@@ -136,15 +151,6 @@
             transform: scale(1.05);
         }
 
-        /* Establecer ancho fijo para los campos */
-        .formulario select,
-        .formulario input[type="number"] {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Contenedor para la Información sobre la Empresa */
         .info-empresa {
             display: none;
             flex-direction: column;
@@ -183,7 +189,6 @@
             transform: scale(1.05);
         }
 
-        /* Animaciones de transiciones */
         .hidden {
             opacity: 0;
             visibility: hidden;
@@ -194,6 +199,66 @@
             visibility: visible;
         }
 
+        /* Media Query para pantallas pequeñas (menos de 768px de ancho) */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+                animation: none;
+            }
+
+            main {
+                padding: 15px;
+                max-width: 100%;
+                margin: 10px;
+                border-radius: 8px;
+            }
+
+            .descripcion,
+            .formulario {
+                padding: 15px;
+                max-width: 100%;
+                margin: 15px 0;
+                font-size: 14px;
+            }
+
+            .descripcion ul,
+            .descripcion li {
+                font-size: 14px;
+            }
+
+            .formulario input,
+            .formulario select {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .formulario button {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .info-empresa {
+                padding: 20px;
+            }
+
+            .info-empresa h2 {
+                font-size: 1.5rem;
+            }
+
+            .boton-cambiar {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            img.producto {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
